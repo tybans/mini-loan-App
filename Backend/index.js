@@ -1,19 +1,28 @@
-const express = require('express');
-require('dotenv').config()
+const express = require("express");
+require("dotenv").config();
+const cors = require("cors");
 
 const app = express();
 
-PORT = process.env.PORT;
+const PORT = process.env.PORT;
 
-const dbConnect = require('./dbConnection')
+const dbConnect = require("./dbConnection");
 dbConnect();
 
 app.use(express.json());
+app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send("Hello from Server...")
-})
+const loanRouter = require("./routes/loan.route");
+
+const userRouter = require("./routes/user.route");
+
+app.use("/loan", loanRouter);
+app.use("/user", userRouter);
+
+app.get("/hello", (req, res) => {
+  res.send("Welcome to Mini-Loan App Server...");
+});
 
 app.listen(PORT, () => {
   console.log(`Server Started at http://localhost: ${PORT}`);
-})
+});
