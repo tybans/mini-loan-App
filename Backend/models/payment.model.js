@@ -7,7 +7,7 @@ const paymentSchema = mongoose.Schema(
       ref: "Loan",
       required: true,
     },
-    loanAmount: {
+    amount: {
       type: Number,
       required: true,
     },

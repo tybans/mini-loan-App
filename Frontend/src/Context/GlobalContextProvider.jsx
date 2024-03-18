@@ -24,7 +24,7 @@ const GlobalContextProvider = ({children}) => {
     const logInApi = `${PORT_Url}/user/signin`
     const signUpApi = `${PORT_Url}/user/signup`
 
-    const allLoansApi = `${PORT_Url}/loan/allLoans`
+    const allLoansApi = `${PORT_Url}/loan/allloans`
     const updateLoansApi = `${PORT_Url}/loan/update`
 
     const createLoanApi = `${PORT_Url}/loan/createLoan`

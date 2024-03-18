@@ -90,8 +90,8 @@ const ReqLoan = () => {
           'Authorization': `Bearer ${authToken}`,
         },
         body: JSON.stringify({
-          loanAmount: parseInt(loanAmount),
-          loanTerm: parseInt(term),
+          amount: parseInt(loanAmount),
+          term: parseInt(term),
           payments: installments,
           userId: user._id,
         }),

@@ -11,7 +11,7 @@ const paymentCalculation = (loan, payments) => {
   for (let i = 0; i < payments.length; i++) {
     const payment = new paymentModel({
       loanId: _id,
-      loanAmount: payments[i].amount,
+      amount: payments[i].amount,
       totalAmount: payments[i].amount,
       date: payments[i].date,
       status: "Pending",
@@ -25,7 +25,7 @@ const paymentCalculation = (loan, payments) => {
 exports.createLoan = async (req, res) => {
   try {
     // console.log(req.body);
-    const { userId, loanAmount, loanTerm, payments } = req.body;
+    const { userId, amount, term, payments } = req.body;
     const user = req.user;
     // console.log(payments);
 
@@ -38,8 +38,8 @@ exports.createLoan = async (req, res) => {
 
     const newLoan = await new loanModel({
       userId,
-      loanAmount,
-      loanTerm,
+      amount,
+      term,
     });
 
     // console.log(newLoan);
@@ -126,7 +126,7 @@ exports.getPaymentsById = async (req, res) => {
 
 exports.doPayment = async (req, res) => {
   try {
-    const { loanId, loanAmount } = req.body;
+    const { loanId, amount } = req.body;
     const loan = await loanModel.findById(loanId);
 
     if (!loan) {

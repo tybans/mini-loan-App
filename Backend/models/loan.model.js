@@ -7,11 +7,11 @@ const mongoose = require("mongoose");
       ref: "userDetails",
       required: true,
     },
-    loanAmount: {
+    amount: {
       type: Number,
       required: true,
     },
-    loanTerm: {
+    term: {
       type: Number,
       required: true,
     },

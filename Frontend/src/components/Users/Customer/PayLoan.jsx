@@ -156,7 +156,7 @@ export default function PayLoan() {
                             {loanRequests.map((payment) => (
                                 <tr key={payment.id}>
 
-                                    <td>{payment.totalAmount}</td>
+                                    <td>{payment.amount}</td>
                                     <td>{payment.amount}</td>
                                     <td>{formatDate(payment.date)}</td>
                                     <td>{(payment.status === "Paid") ?
